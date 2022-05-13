@@ -1,34 +1,21 @@
 //엑셀데이터 업로드
-function upload(){
-    const input = event.target;
-    const reader = new FileReader();
-    reader.onload = function(){ 
-      const fdata = reader.result;
-      const read_buffer = XLSX.read(fdata, {type : 'binary'});
-    read_buffer.SheetNames.forEach(function(sheetName){ 
-      const rowdata =XLSX.utils.sheet_to_json(read_buffer.Sheets[sheetName]);
-      const dataUpload = JSON.stringify(rowdata);
-      const dis_upload = document.getElementById("file_upload");
-      dis_upload.innerHTML = dataUpload.replace(/\"|:|\[{|\}]/g, ' ');
-     }
-    )
-  };
-    reader.readAsBinaryString(input.files[0]); 
-  } 
+// function upload(){
+//     const input = event.target;
+//     const reader = new FileReader();
+//     reader.onload = function(){ 
+//       const fdata = reader.result;
+//       const read_buffer = XLSX.read(fdata, {type : 'binary'});
+//     read_buffer.SheetNames.forEach(function(sheetName){ 
+//       const rowdata =XLSX.utils.sheet_to_json(read_buffer.Sheets[sheetName]);
+//       const dataUpload = JSON.stringify(rowdata);
+//       const dis_upload = document.getElementById("file_upload");
+//       dis_upload.innerHTML = dataUpload.replace(/\"|:|\[{|\}]/g, ' ');
+//      }
+//     )
+//   };
+  //   reader.readAsBinaryString(input.files[0]); 
+  // } 
 
-  //로그인
-  function onLogin(){
-    const ID = document.getElementById("ID");
-    const PW = document.getElementById("PW");
-    if(ID.value=="asd" && PW.value=="asd"){
-      alert("로그인 성공");
-      location.href ="/practice/practice_total.html";
-    }else{
-      alert("로그인 실패");
-    }
-    ID.value = "";
-    PW.value = "";
-  } 
 
 
   const tablePageBtn = document.querySelector("#table_btn");
@@ -46,19 +33,10 @@ function upload(){
                     homePageBtn.classList.add(HIDDEN_classname);
                     tablePageBtn.classList.remove(HIDDEN_classname);
                     document.querySelector('#homeForm').innerHTML = text;
-                  }return
+                  }
                 });
               });
   }
-  // function homePage(name){
-  //   fetch(name).then(function(response){
-  //         response.text().then(function(text){
-  //           tablePageBtn.classList.remove(HIDDEN_classname);
-  //           homePageBtn.classList.add(HIDDEN_classname);
-  //         document.querySelector('#home_form').innerHTML = text;
-  //                 })
-  //             });
-  // }
 const clock = document.querySelector("#clock");
 const date_dis = document.querySelector('#date')
 
