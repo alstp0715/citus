@@ -5,6 +5,9 @@
       <div class="nav_title">
         태양관 발전량(일간)
       </div>
+      <ul id="endata">
+
+      </ul>
     </div>
     <div class="nav_2">
       <div class="nav_title">
