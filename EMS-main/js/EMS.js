@@ -12,7 +12,7 @@
                   }else {
                     homePageBtn.classList.add(HIDDEN_classname);
                     tablePageBtn.classList.remove(HIDDEN_classname);
-                    document.querySelector('#homeForm').innerHTML = text;
+                    location.href ="./index.html";
                   }
                 });
               });
