@@ -1,23 +1,3 @@
-//엑셀데이터 업로드
-// function upload(){
-//     const input = event.target;
-//     const reader = new FileReader();
-//     reader.onload = function(){ 
-//       const fdata = reader.result;
-//       const read_buffer = XLSX.read(fdata, {type : 'binary'});
-//     read_buffer.SheetNames.forEach(function(sheetName){ 
-//       const rowdata =XLSX.utils.sheet_to_json(read_buffer.Sheets[sheetName]);
-//       const dataUpload = JSON.stringify(rowdata);
-//       const dis_upload = document.getElementById("file_upload");
-//       dis_upload.innerHTML = dataUpload.replace(/\"|:|\[{|\}]/g, ' ');
-//      }
-//     )
-//   };
-  //   reader.readAsBinaryString(input.files[0]); 
-  // } 
-
-
-
   const tablePageBtn = document.querySelector("#table_btn");
   const homePageBtn = document.querySelector("#home_btn");
   const HIDDEN_classname = 'hidden'; 
@@ -40,10 +20,10 @@
 const clock = document.querySelector("#clock");
 const date_dis = document.querySelector('#date')
 
-function sayHello(){
+function whatTime(){
   const date = new Date();
   const year = String(date.getFullYear())
-  const month = String(date.getMonth())
+  const month = String(date.getMonth()+1)
   const Ddate = String(date.getDate())
   const hours =String(date.getHours()).padStart(2,"0");
   const minutes =String(date.getMinutes()).padStart(2,"0");
@@ -60,5 +40,5 @@ function sayHello(){
   clock.innerText = `${hours}:${minutes}:${seconds}`;
   date_dis.innerText =` ${year}-${month}-${Ddate} ${d}`
 }
-sayHello()
-setInterval(sayHello,1000);
+whatTime()
+setInterval(whatTime,1000);
