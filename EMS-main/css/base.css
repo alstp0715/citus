@@ -41,6 +41,12 @@
     width: 200px;
     height: 700px;
 }
+.sidebar ul
+{
+    float: right;
+    margin-top: 10px;
+    margin-right: 6px;
+}
 .container
 {
     float: left;

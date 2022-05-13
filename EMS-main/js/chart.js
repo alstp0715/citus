@@ -1,9 +1,10 @@
 new Chart(document.querySelectorAll('.line_chart'), {
     type: 'line',
     data: {
+
       labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
       datasets: [{ 
-          data: [0,110,200,350,400,300,500,600,500,800,400,100],
+          data: [0,1100,2000,3500,4000,3000,5000,6500,6000,5000,4000,1000],
           label: "발전량",
           borderColor: "#3e95cd",
           fill: true

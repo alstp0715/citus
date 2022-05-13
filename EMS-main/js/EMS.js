@@ -45,7 +45,6 @@ function sayHello(){
   const year = String(date.getFullYear())
   const month = String(date.getMonth())
   const Ddate = String(date.getDate())
-  // const day = String(date.getDay())
   const hours =String(date.getHours()).padStart(2,"0");
   const minutes =String(date.getMinutes()).padStart(2,"0");
   const seconds = String(date.getSeconds()).padStart(2,"0");

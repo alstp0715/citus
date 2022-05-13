@@ -53,16 +53,16 @@
           <div class="nav_1">
             <div class="nav_title">
               태양관 발전량(일간)
-              <ul id="endata">
-
-              </ul>
             </div>
+            <ul id="sun_day">
+
+            </ul>
           </div>
           <div class="nav_2">
             <div class="nav_title">
               ESS 충전/방전량 (일간)
             </div>
-            <ul id="esdata">
+            <ul id="ess_day">
 
             </ul>
           </div>
@@ -70,7 +70,7 @@
             <div class="nav_title">
               태양광 발전량(월간)
             </div>
-            <ul id="Endata">
+            <ul id="sun_mon">
 
             </ul>
           </div>
@@ -78,6 +78,9 @@
             <div class="nav_title">
               ESS 충전/방정량 (월간)
             </div>
+            <ul id="ess_mon">
+
+            </ul>
           </div>
           <div class="nav_5">
             <div class="nav_title">
@@ -124,15 +127,35 @@
     </div>
   </div>
   <script>
-    function energyData(data,id) {
-      for (let i = 0; i < data.length; i++) {
-        document.getElementById(id).innerHTML = `<li>${data[i].금일}</li><li>${data[i].전일}<li>${data[i].시간}</li></li>`;
-      }
+    let sunDay = "";
+    let essDay = "";
+    let sunMon = "";
+    let essMon = "";
+  
+    for(i in energy.sun_day)
+    {
+        sunDay += `<li>${energy.sun_day[i]}</li>`
+        document.getElementById("sun_day").innerHTML = sunDay;
     }
-    energyData(태양_일간,"endata");
-    energyData(ESS_일간,"esdata");
-    energyData(태양_월간,"Endata");
-
+  
+    for(i in energy.ess_day)
+    {
+        essDay += `<li>${energy.ess_day[i]}</li>`
+        document.getElementById("ess_day").innerHTML = essDay;
+    }
+  
+    for(i in energy.sun_mon)
+    {
+        sunMon += `<li>${energy.sun_mon[i]}</li>`
+        document.getElementById("sun_mon").innerHTML = sunMon;
+    }
+  
+    for(i in energy.ess_mon)
+    {
+      essMon += `<li>${energy.ess_mon[i]}</li>`
+      document.getElementById("ess_mon").innerHTML = essMon;
+    }
+    
   </script>
   <script src="./js/EMS.js"></script>
   <script src="./js/chart.js"></script>
