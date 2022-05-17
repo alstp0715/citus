@@ -1,6 +1,7 @@
 energy = 
     {
         "sun_day":["13,000kWh","24,000kWh","5.4시간"],
+        "sun_day_1":["1000kwkw"],
         "ess_day":["6,000kWh","6,500kWh","4,000kWh","5,500kWh"],
         "sun_mon":["500MWh","530MWh"],
         "ess_mon":["60.1MWh","195.2MWh","74.0MWh","192.8MWh"]
