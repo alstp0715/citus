@@ -8,48 +8,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>테스트</title>
 </head>
-<body>
+<body style="list-style: none;">
+    <div id="yi">
+
+    </div>
+
+    <div id="iy">
+        
+        <h2>cc</h2>
+
+    </div>
     <!-- <input type="file" onchange="readExcel()"> -->
     <script>
     $.ajax({
-    url: 'csv_data.csv',
+    url: 'csv_data_test.csv',
     dataType: 'text',
     }).done(successFunction);
     
     function successFunction(data) {
         const allRows = data.split(/\r?\n|\r/);
-        let table = '<table>';
+        let x = "";
             for (let singleRow = 0; singleRow < allRows.length; singleRow++) {
-        if (singleRow === 0) {
-            table += '<thead>';
-            table += '<tr>';
-            } else {
-            table += '<tr>';
-            }
+                if(singleRow === 0){
+                    x += `aa`; 
+                }else if(singleRow === 1){
+                    x += `id`;
+                }else {
+                    x += `2`;
+                }
         const rowCells = allRows[singleRow].split(',');
         for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
         if (singleRow === 0) {
-                table += '<th>';
-                table += rowCells[rowCell];
-                table += `</th>`;
+                x += '<li>';
+                x += rowCells[rowCell];
+                x += `</li>`;
             } 
             else {
-                table += '<td>';
-                table += rowCells[rowCell];
-                table += '</td>';
+                x += '<li>';
+                x += rowCells[rowCell];
+                x += '</li>';
                 }
             }
-        if (singleRow === 0) {
-            table += '</tr>';
-            table += '</thead>';
-            table += '<tbody>';
-            } else {
-            table += '</tr>';
-            }
         } 
-    table += '</tbody>';
-    table += '</table>';
-    $('body').append(table);
+    $('#yi').append(x);
 }
 // function readExcel() {
     
