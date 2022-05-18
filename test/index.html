@@ -2,73 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>테스트</title>
 </head>
-<body style="list-style: none;">
-    <div id="yi">
+<body>
 
-    </div>
-
-    <div id="iy">
+    <ul id="#a">
+        aa
+    </ul>
+    <ul id="#b">
         
-        <h2>cc</h2>
+    </ul>
+    <ul id="#c">
+        
+    </ul>
+    <ul id="#d">
+        
+    </ul>
+    <ul id="#e">
+        
+    </ul>
 
-    </div>
-    <!-- <input type="file" onchange="readExcel()"> -->
     <script>
     $.ajax({
-    url: 'csv_data_test.csv',
-    dataType: 'text',
-    }).done(successFunction);
+            url: 'csv_data_test.csv',
+            dataType: 'text',
+        }).done(csv_file);
     
-    function successFunction(data) {
-        const allRows = data.split(/\r?\n|\r/);
-        let x = "";
-            for (let singleRow = 0; singleRow < allRows.length; singleRow++) {
-                if(singleRow === 0){
-                    x += `aa`; 
-                }else if(singleRow === 1){
-                    x += `id`;
-                }else {
-                    x += `2`;
-                }
-        const rowCells = allRows[singleRow].split(',');
-        for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
-        if (singleRow === 0) {
-                x += '<li>';
-                x += rowCells[rowCell];
-                x += `</li>`;
-            } 
-            else {
-                x += '<li>';
-                x += rowCells[rowCell];
-                x += '</li>';
-                }
-            }
-        } 
-    $('#yi').append(x);
-}
-// function readExcel() {
-    
-//     let input = event.target;
-//     let reader = new FileReader();
-//     reader.onload = function () {
-//         let data = reader.result;
-//         let workBook = XLSX.read(data, { type: 'binary' });
-//         workBook.SheetNames.forEach(function (sheetName) {
-//             console.log('SheetName: ' + sheetName);
-//             let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
-//             const jsonStr = JSON.stringify(rows);
-//             const jsonPar = JSON.parse(jsonStr);
-//             document.write(jsonPar[0])
-//         })
-//     };
-//     reader.readAsBinaryString(input.files[0]);
-// }
+    function csv_file(data){
+        const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
+        let a = "";
+        let b = "";
+        let c = "";
+        let d = ""; 
+        let e = "";
+        for(let i = 0; i < csvData.length-1; i++){
+            const onData = csvData[i].split(',');
+            a += `<li>${onData[0]}</li>`;
+            b += `<li>${onData[1]}</li>`;
+            c += `<li>${onData[2]}</li>`;
+            d += `<li>${onData[3]}</li>`;
+            e += `<li>${onData[4]}</li>`;
+            console.log(onData);
+        }
+        $('#a').append(a)
+        $('#b').append(b)
+        $('#c').append(c)
+        $('#d').append(d)
+        $('#e').append(e)
+        
+    }
     </script>
 </body>
 </html>
