@@ -10,43 +10,57 @@
     ul{
         list-style: none;
     }
+    .hidden{
+        display: none;
+    }
 </style>
     </head>
 <body>
-<ul id="a"></ul>
-<ul id="b"></ul>
-<ul id="c"></ul>
-<ul id="d"></ul>
-<ul id="e"></ul>
+    <div id="HIDDEN_CLASS">
+        <ul id="a"></ul>
+        <ul id="b"></ul>
+        <ul id="c"></ul>
+        <ul id="d"></ul>
+        <ul id="e"></ul>
+    </div>
 <script>
-        $.ajax({
-            url: 'csv_data_test.csv',
+
+    // setTimeout(function(){$.ajax({
+    //         url: 'csv_data_test.csv',
+    //         dataType: 'text',
+    //     }).done(csv_file);
+    // },4000);
+    $.ajax({
+            url: 'csv_data_test_1.csv',
             dataType: 'text',
         }).done(csv_file);
+    
 
         function csv_file(data){
         const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
-        let a = "";
-        let b = "";
-        let c = "";
-        let d = ""; 
-        let e = "";
+
         for(let i = 0; i < csvData.length-1; i++){
             const onData = csvData[i].split(',');
-            a += `<li>${onData[0]}</li>`;
-            b += `<li>${onData[1]}</li>`;
-            c += `<li>${onData[2]}</li>`;
-            d += `<li>${onData[3]}</li>`;
-            e += `<li>${onData[4]}</li>`;
-            console.log(onData);
+            const a = `<li>${onData[0]}</li>`;
+            const b = `<li>${onData[1]}</li>`;
+            const c = `<li>${onData[2]}</li>`;
+            const d = `<li>${onData[3]}</li>`;
+            const e = `<li>${onData[4]}</li>`;
+            console.log(a);
+            $('#a').append(a)
+            $('#b').append(b)
+            $('#c').append(c)
+            $('#d').append(d)
+            $('#e').append(e)            
         }
-        $('#a').append(a)
-        $('#b').append(b)
-        $('#c').append(c)
-        $('#d').append(d)
-        $('#e').append(e)
-        
+    }                    
+    function updateArray(myArray, oldValue, newValue) {
+    
+    
+    
     }
+
+
 </script>
 </body>
 </html>
