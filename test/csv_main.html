@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>테스트</title>
-<<<<<<< HEAD:test/test.html
 <style>
     ul{
         list-style: none;
@@ -36,34 +35,6 @@
     
 
         function csv_file(data){
-=======
-</head>
-<body>
-
-    <ul id="#a">
-        aa
-    </ul>
-    <ul id="#b">
-        
-    </ul>
-    <ul id="#c">
-        
-    </ul>
-    <ul id="#d">
-        
-    </ul>
-    <ul id="#e">
-        
-    </ul>
-
-    <script>
-    $.ajax({
-            url: 'csv_data_test.csv',
-            dataType: 'text',
-        }).done(csv_file);
-    
-    function csv_file(data){
->>>>>>> 11b4512fcd78bafe7e3c8f00d7f428865ca81ff3:test/csv_main.html
         const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
 
         for(let i = 0; i < csvData.length-1; i++){
@@ -86,12 +57,8 @@
     
     
     }
-<<<<<<< HEAD:test/test.html
 
 
 </script>
-=======
-    </script>
->>>>>>> 11b4512fcd78bafe7e3c8f00d7f428865ca81ff3:test/csv_main.html
 </body>
 </html>
