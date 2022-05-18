@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>테스트_1</title>
+</head>
+<body style="list-style: none;">
+
+    <ul id="yi">
+
+    </ul>
+    <ul id="yy"></ul>
+<script>
+    $.ajax({
+    url: 'csv_data_test.csv',
+    dataType: 'text',
+    }).done(csv_file);
+    
+    function csv_file(data){
+
+        const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
+        let xs = "";
+        for(let i = 0; i < csvData.length-1; i++){
+            const onData = csvData[i].split(',');
+            xs += `${onData}<br>`;
+        }
+        $('#yi').append(xs)
+
+    }
+    </script>
+</body>
+</html>
