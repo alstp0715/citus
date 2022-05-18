@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>테스트</title>
-</head>
+<style>
+    ul{
+        list-style: none;
+    }
+</style>
+    </head>
 <body>
+
 
     <ul id="#a">
     </ul>
@@ -27,8 +32,8 @@
             url: 'csv_data_test.csv',
             dataType: 'text',
         }).done(csv_file);
-    
-    function csv_file(data){
+
+        function csv_file(data){
         const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
         let a = "";
         let b = "";
@@ -51,6 +56,6 @@
         $('#e').append(e)
 
     }
-    </script>
+</script>
 </body>
 </html>
