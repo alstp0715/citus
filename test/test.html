@@ -6,25 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>테스트</title>
-</head>
+<style>
+    ul{
+        list-style: none;
+    }
+</style>
+    </head>
 <body>
+<ul id="a"></ul>
+<ul id="b"></ul>
+<ul id="c"></ul>
+<ul id="d"></ul>
+<ul id="e"></ul>
+<script>
+        $.ajax({
+            url: 'csv_data_test.csv',
+            dataType: 'text',
+        }).done(csv_file);
 
-    <ul id="#sun_day">
-        a
-    </ul>
-    <ul id="#ess_day">
+        function csv_file(data){
+        const csvData = JSON.parse(JSON.stringify(data)).split('\r\n');
+        let a = "";
+        let b = "";
+        let c = "";
+        let d = ""; 
+        let e = "";
+        for(let i = 0; i < csvData.length-1; i++){
+            const onData = csvData[i].split(',');
+            a += `<li>${onData[0]}</li>`;
+            b += `<li>${onData[1]}</li>`;
+            c += `<li>${onData[2]}</li>`;
+            d += `<li>${onData[3]}</li>`;
+            e += `<li>${onData[4]}</li>`;
+            console.log(onData);
+        }
+        $('#a').append(a)
+        $('#b').append(b)
+        $('#c').append(c)
+        $('#d').append(d)
+        $('#e').append(e)
         
-    </ul>
-    <ul id="#sun_mon">
-        
-    </ul>
-    <ul id="#ess_mon">
-        
-    </ul>
-    <ul id="#ess_total">
-        
-    </ul>
-
-
+    }
+</script>
 </body>
 </html>
